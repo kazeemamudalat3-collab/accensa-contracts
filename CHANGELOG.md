@@ -8,6 +8,11 @@ breaking changes bump the **minor** version, and they are called out as such.
 
 ## [Unreleased]
 
+- **`state-channel` (issue #787): `ChannelOpenedEvent` field rustdoc.** Each of
+  the event's 5 public fields (`channel_id`, `sender`, `receiver`, `amount`,
+  `challenge_period`) now carries a `///` line stating its unit/domain and the
+  code path that writes it. Doc comments only — no field, type or behavior
+  change.
 - **`state-channel` (issue #622): hashlock reserve bookkeeping pinned by
   tests.** New tests in `contracts/state-channel/src/hashlock_test.rs`
   assert, after every add/resolve/refund transition, that `HashlockReserved`
