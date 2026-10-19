@@ -138,10 +138,15 @@ pub enum DataKey {
 #[derive(Clone, Debug, Eq, PartialEq)]
 pub struct ChannelOpenedEvent {
     #[topic]
+    /// Channel id written by `open_channel`: the stored `ChannelCount` plus 1.
     pub channel_id: u64,
+    /// Sender address passed to `open_channel`; the party that authorizes the escrow transfer.
     pub sender: Address,
+    /// Receiver address passed to `open_channel`; the target of claim and settlement payouts.
     pub receiver: Address,
+    /// Token amount `open_channel` escrows (rejected unless positive).
     pub amount: i128,
+    /// Challenge window in ledgers; `open_channel` resolves `0` to the default and caps the rest.
     pub challenge_period: u32,
 }
 
