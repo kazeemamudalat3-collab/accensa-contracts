@@ -12,6 +12,12 @@ exception: while the project is below `1.0.0`, breaking changes bump the
 - **Documentation (#756, #757, #761, #762):** Documented granular event payload fields and refund-vault APIs.
 
 - **Contract payload field documentation (#763, #764, #765):** Documented the public fields of governance `Proposal`, receipt-anchor `AnchorPayload`, and `RefundEventPayload`.
+- **`state-channel` (issue #787): document the 5 public fields of
+  `ChannelOpenedEvent`.** Added one `///` line above `channel_id`, `sender`,
+  `receiver`, `amount` and `challenge_period` in
+  `contracts/state-channel/src/lib.rs`, each stating the value's unit or
+  domain and the code path that writes it. Doc comments only — no field, type
+  or derive changes.
 - **`refund-vault` (issue #685): report a missing payment token from
   `deploy_to_yield` instead of aborting.** The `DataKey::Token` read in
   `contracts/refund-vault/src/lib.rs` was an `unwrap()`, so a deployment that
